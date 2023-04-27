@@ -1,16 +1,12 @@
 import React, { createContext, useState } from "react";
-
-import Sidebar from "./components/homepage/sidebar";
 import Navbar from "./components/homepage/navbar";
 import LoginPage from "./components/Login_page/login";
 import CouriersPage from "./components/couriers/couriers";
 import NoticeBoard from "./components/Notices/NoticeBoard";
 import Complaints from "./components/complaints/complaints";
 import Lostnfound from "./components/lostnfound/lostnfound";
-import Notices from "./components/homepage/Notices";
 import { CookiesProvider } from "react-cookie";
 import Mainpage from "./components/homepage/mainpage";
-import Footer from "./components/footer/Footer";
 
 // import addComp from "./components/complaints/Add_complaint";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

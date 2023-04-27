@@ -10,13 +10,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Stack } from "@mui/material";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useCookies } from "react-cookie";
 import Footer from "../footer/Footer";
 
@@ -41,7 +36,7 @@ export default function Lostnfound() {
   const [lostnfound, setlostnfound] = useState([]);
   // get all list of current couriers when page is loaded
   document.onreadystatechange = async function () {
-    Lostnfound = (await fetch("https://hostel-management-system-2l8c.onrender.com/lostnfound")).json();
+    Lostnfound = (await fetch("http://localhost:5000/lostnfound")).json();
 
     Lostnfound.then(async (data) => {
       // console.log(data);
@@ -62,7 +57,7 @@ export default function Lostnfound() {
     studentid: "",
     contact: "",
     description: "",
-    status: "",
+    status: "lost",
   };
 
   const handleRedirecting = async (e) => {
@@ -84,7 +79,7 @@ export default function Lostnfound() {
   const handleDelete = async (f) => {
     console.log("Deleting");
     const res = await fetch(
-      `https://hostel-management-system-2l8c.onrender.com/lostnfound/${f}`,
+      `http://localhost:5000/lostnfound/${f}`,
       {
         method: "delete",
         headers: {
@@ -99,7 +94,7 @@ export default function Lostnfound() {
   const updateStatus = async (f) => {
     console.log("Updating");
     const res = await fetch(
-      `https://hostel-management-system-2l8c.onrender.com/lostnfound/${f}`,
+      `http://localhost:5000/lostnfound/${f}`,
       {
         method: "put",
         headers: {
@@ -118,7 +113,8 @@ export default function Lostnfound() {
 
   const Adding = async (Newitem) => {
     console.log("Adding");
-    const res = await fetch("https://hostel-management-system-2l8c.onrender.com/lostnfound", {
+    console.log(Newitem);
+    const res = await fetch("http://localhost:5000/lostnfound", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -336,7 +332,7 @@ export default function Lostnfound() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </body>
   );
 }
